@@ -49055,21 +49055,8 @@ var app = new Vue({
   data: {
     reservas: [],
     mesas: [],
-    clientes: [{
-      c: 1
-    }, {
-      c: 2
-    }, {
-      c: 3
-    }, {
-      c: 4
-    }, {
-      c: 5
-    }, {
-      c: 6
-    }],
     qty: 0,
-    mesa: []
+    mesasDisp: []
   },
   methods: {
     getMesas: function getMesas() {
@@ -49089,16 +49076,15 @@ var app = new Vue({
     calculateSeats: function calculateSeats() {
       var _this3 = this;
 
-      console.log(this.getMesas());
-      this.getMesas.map(function (n) {
-        return _this3.mesa = n.tableName;
+      this.getMesas();
+      this.mesasDisp = this.mesas.filter(function (m) {
+        return m.tableNumber >= parseInt(_this3.qty);
       });
     }
   },
   mounted: function mounted() {
     this.getReservas();
-    this.calculateSeats();
-    console.log(this.getMesas());
+    this.getMesas(); //this.calculateSeats();
   }
 });
 
@@ -49180,8 +49166,8 @@ if (token) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\AlumnoDG\laravel-vue-final\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\AlumnoDG\laravel-vue-final\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\Francisco\Documents\ISIL\DesarrolloWeb2\Laravel-Vue-Final\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\Francisco\Documents\ISIL\DesarrolloWeb2\Laravel-Vue-Final\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

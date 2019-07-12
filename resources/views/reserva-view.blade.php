@@ -40,7 +40,7 @@
                                     <td>@{{reserva.clientName + ' ' + reserva.clientLastName}}</td>
                                     <td>@{{reserva.host}}</td>
                                     <td>@{{reserva.clientsQty}}</td>
-                                    <td>@{{'Mesa '+reserva.tableNumber}}</td>
+                                    <td>@{{reserva.tableNumber}}</td>
                                 </tr>
                             </tbody>
                         </table>

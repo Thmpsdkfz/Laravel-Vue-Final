@@ -69,13 +69,14 @@
                                 <label for="clientsQty">Número de clientes</label>
                                 <input type="number"
                                 class="form-control" placeholder="Número de clientes"
-                                name="clientsQty" v-model="qty">
+                                name="clientsQty" v-model="qty"  v-on:keyup="calculateSeats()">
                             </div>
 
                             <div class="form-group">
                                 <label for="tableNumber">Número de mesa</label>
                                 <select class="form-control" name="tableNumber">
-                                    <option>@{{}}</option>
+                                    <option v-for="m in mesasDisp">
+                                        @{{m.tableName + " - " +m.tableSeats+" asientos"}}</option>
                                 </select>
                             </div>
 

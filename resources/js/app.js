@@ -33,11 +33,8 @@ const app = new Vue({
     data:{
         reservas : [],
         mesas: [],
-        clientes: [
-            {c:1},{c:2},{c:3},{c:4},{c:5},{c:6} 
-        ],
         qty: 0,
-        mesa: []
+        mesasDisp: []
     },
     methods:{
         getMesas(){
@@ -49,13 +46,15 @@ const app = new Vue({
             .then( res => this.reservas = res.data );
         },
         calculateSeats(){
-            console.log(this.getMesas());
-            this.getMesas.map( n => this.mesa = n.tableName );
+            this.getMesas();
+            this.mesasDisp = this.mesas.filter( 
+                m => m.tableNumber>=parseInt(this.qty)
+                );
         }
     },
     mounted(){
         this.getReservas();
-        this.calculateSeats();
-        console.log(this.getMesas());
+        this.getMesas();
+        //this.calculateSeats();
     }
 });
